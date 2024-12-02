@@ -15,6 +15,7 @@ server.use(bodyParser.json());
 server.use('/auth', AuthRouter);
 server.use('/api', ContactRouter);
 server.use('/api', ItemRouter); 
+server.get("/",(req,res)=>res.send('Backend is Running'))
 
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
