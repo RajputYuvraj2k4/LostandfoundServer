@@ -10,7 +10,11 @@ const ItemRouter = require('./Routes/ItemRouter');
 const PORT = process.env.PORT || 8080;
 
 const server = express();
-server.use(cors()); // Enable CORS for the entire app
+server.use(cors({
+  origin: 'http://localhost:3000', // Allow requests only from this origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+  credentials: true 
+})); 
 server.use(bodyParser.json());
 server.use('/auth', AuthRouter);
 server.use('/api', ContactRouter);
